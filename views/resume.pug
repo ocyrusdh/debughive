@@ -1,0 +1,118 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/resume.css')
+    body
+        button(id='print', onclick='window.print()') Print Me
+        img.logo(src='http://debughive.com/public/images/debug.png', alt='logo')
+        .column_1
+            h1= name
+            h4= job_title
+            div
+                h2 Contact Info
+                .sub_section
+                    h3 Phone
+                    a(href='callto:' + contact.phone)= contact.phone_formatted
+                .sub_section
+                    h3 Address
+                    a(href='https://maps.google.com/?q=6%20Devon%20Ct,%20Nanuet,%20NY%2010954', target='_blank')
+                        | #{contact.address.address_1}
+                        <br />
+                        | #{contact.address.city + ',' + contact.address.state + contact.address.zip}
+                .sub_section
+                    h3 Email
+                    a(href='mailto:' + contact.email)= contact.email
+            div
+                h2 Skills
+                .sub_section
+                    h3 Coding Languages
+                    each coding in skills.coding
+                        span= coding.language
+                        .rating(class='score_' + coding.score)
+                            - var n = 0;
+                            while n < 5
+                                div
+                                - n++;
+                .sub_section
+                    h3 Frameworks
+                    each framework in skills.frameworks
+                        span= framework.framework
+                        .rating(class='score_' + framework.score)
+                            - var n = 0;
+                            while n < 5
+                                div
+                                - n++;
+                .sub_section.pagebreak
+                    h3 Environments
+                    each environment in skills.environments
+                        span= environment.environment
+                        .rating(class='score_' + environment.score)
+                            - var n = 0;
+                            while n < 5
+                                div
+                                - n++;
+                .sub_section
+                    h3 Software
+                    each software in skills.software
+                        span= software.program
+                        .rating(class='score_' + software.score)
+                            - var n = 0;
+                            while n < 5
+                                div
+                                - n++;
+        .column_2
+            div
+                h2 Professional Summary
+                br
+                span= summary
+            div
+                h2 Relevant Experience
+                each xp in experience
+                    .sub_section(class=(xp.company == 'Freelance' ? 'pagebreak' : ''))
+                        h3
+                            a(href=xp.link)= xp.company
+                            span.right= xp.start + ' - ' + xp.end
+                        span= xp.title
+                        br
+                        span= xp.skills.join(' - ')
+                        p= xp.description
+                        if xp.list.length
+                            ul
+                                each li in xp.list
+                                    li
+                                        if li.link
+                                            a(href=li.link)= li.item
+                                        else
+                                            span= li.item
+                        if xp.contact.phone
+                            p For proof of employment:
+                                br
+                                | #{xp.contact.name}
+                                br
+                                | #{xp.contact.title}
+                                br
+                                a(href='callto:'+ xp.contact.phone)= xp.contact.phone_formatted
+            div
+                h2 Education
+                each ed in education
+                    .sub_section
+                        h3 #{ed.certificate}
+                            span.right= ed.year
+                        span= ed.school
+                        br
+                        span= ed.state
+            div
+                h2 Hobbies
+                br
+                span= hobbies.join(' - ')
+            div
+                h2 Professional References
+                each rf in references
+                    .sub_section.reference
+                        h4= rf.name
+                        div= rf.title
+                        div= rf.company
+                        a(href='callto:' + rf.phone)= rf.phone_formatted
+                        if rf.email
+                            a(href='mailto:' + rf.email)= rf.email
