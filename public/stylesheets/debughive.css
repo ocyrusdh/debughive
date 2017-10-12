@@ -1,0 +1,80 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('http://debughive.com/public/images/tile_background.jpg');
+}
+
+.no_select {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+div.logo {
+    background-image: url('http://debughive.com/public/images/debug.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 500px;
+    height: 500px;
+    width: 500px;
+    position: relative;
+    margin: auto;
+}
+
+div.hexagon {
+    position: absolute;
+    width: 177px;
+    height: 127px;
+    background: transparent;
+    color: transparent;
+    font-size: 150px;
+    text-align: center;
+    line-height: 133px;
+    font-family: arial;
+}
+div.hexagon:active {
+    color: #FFF;
+    background: #000; /* default color */
+    background:
+            -moz-linear-gradient(30deg,  transparent 50px, #000 50px),
+            -moz-linear-gradient(150deg, transparent 50px, #000 50px),
+            -moz-linear-gradient(210deg, transparent 50px, #000 50px),
+            -moz-linear-gradient(330deg, transparent 50px, #000 50px);
+    background:
+            -o-linear-gradient(30deg,  transparent 50px, #000 50px),
+            -o-linear-gradient(150deg, transparent 50px, #000 50px),
+            -o-linear-gradient(210deg, transparent 50px, #000 50px),
+            -o-linear-gradient(330deg, transparent 50px, #000 50px);
+    background:
+            -webkit-linear-gradient(30deg,  transparent 50px, #000 50px),
+            -webkit-linear-gradient(150deg, transparent 50px, #000 50px),
+            -webkit-linear-gradient(210deg, transparent 50px, #000 50px),
+            -webkit-linear-gradient(330deg, transparent 50px, #000 50px);
+    background-position: bottom left, bottom right, top right, top left;
+    -moz-background-size: 50% 50%;
+    -webkit-background-size: 50% 50%;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    margin-bottom: 15px;
+    padding: 15px;
+}
+
+div.hexagon.one {
+    top: 213px;
+    left: 6px;
+}
+div.hexagon.two {
+    top: 295px;
+    left: 150px;
+}
+div.hexagon.three {
+    top: 213px;
+    left: 292px;
+}
